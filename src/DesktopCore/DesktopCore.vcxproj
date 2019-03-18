@@ -127,6 +127,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Blink\Agents\SaveTokenAgent.cpp" />
+    <ClCompile Include="Blink\Agents\SyncThumbnailAgent.cpp" />
     <ClCompile Include="DesktopContext.cpp" />
     <ClCompile Include="DesktopCore.cpp" />
     <ClCompile Include="Blink\Agents\SyncVideoAgent.cpp" />
@@ -139,15 +141,20 @@
     <ClCompile Include="System\Services\FileInfoService.cpp" />
     <ClCompile Include="System\Services\FileIOService.cpp" />
     <ClCompile Include="System\Services\CopyFolderService.cpp" />
+    <ClCompile Include="System\Services\IniFileService.cpp" />
     <ClCompile Include="System\Services\ReplaceFolderService.cpp" />
+    <ClCompile Include="System\Services\TimestampFolderService.cpp" />
     <ClCompile Include="Upgrade\Agents\UpgradeViewerAgent.cpp" />
     <ClCompile Include="Utils\Patterns\PublisherSubscriber\Broker.cpp" />
     <ClCompile Include="Utils\Patterns\PublisherSubscriber\Subscriber.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Blink\Agents\SaveTokenAgent.h" />
+    <ClInclude Include="Blink\Agents\SyncThumbnailAgent.h" />
     <ClInclude Include="DesktopContext.h" />
     <ClInclude Include="DesktopCore.h" />
     <ClInclude Include="Blink\Agents\SyncVideoAgent.h" />
+    <ClInclude Include="Model\IAgent.h" />
     <ClInclude Include="Model\Notification.h" />
     <ClInclude Include="Network\Events.h" />
     <ClInclude Include="Network\Model\Credentials.h" />
@@ -161,7 +168,9 @@
     <ClInclude Include="System\Services\FileInfoService.h" />
     <ClInclude Include="System\Services\FileIOService.h" />
     <ClInclude Include="System\Services\CopyFolderService.h" />
+    <ClInclude Include="System\Services\IniFileService.h" />
     <ClInclude Include="System\Services\ReplaceFolderService.h" />
+    <ClInclude Include="System\Services\TimestampFolderService.h" />
     <ClInclude Include="Upgrade\Agents\UpgradeViewerAgent.h" />
     <ClInclude Include="Upgrade\Events.h" />
     <ClInclude Include="Utils\Patterns\PublisherSubscriber\Broker.h" />

@@ -7,7 +7,6 @@
 #include "Agents\NotificationAgent.h"
 #include "DesktopCore\DesktopCore.h"
 #include "DesktopCore\Upgrade\Agents\UpgradeViewerAgent.h"
-#include "DesktopCore\Blink\Agents\SyncVideoAgent.h"
 #include "DesktopCore\System\Services\ApplicationDataService.h"
 
 #include "Services\DownloadFileService.h"
@@ -106,19 +105,11 @@ BOOL DesktopApp::CreateBrowser(CefRefPtr<desktop::ui::BrowserClientHandler> clie
 
 std::string DesktopApp::onBrowserCreated(CefRefPtr<CefBrowser> browser)
 {
+	m_core->initialize();
+
+	m_core->addAgent(std::make_unique<desktop::core::agent::UpgradeViewerAgent>(std::make_unique<desktop::ui::service::DownloadFileService>(browser)));
+
 	desktop::core::service::ApplicationDataService service;
-
 	auto documents = service.getMyDocuments();
-
-	boost::filesystem::create_directories(documents + "Download\\Versions");
-
-	auto updateAgent = std::make_unique<desktop::core::agent::UpgradeViewerAgent>("api.github.com", "/repos/lurume84/bling-viewer/releases/latest",
-																				documents + "Download\\Versions\\", "Html/viewer",
-																				std::make_unique<desktop::ui::service::DownloadFileService>(browser));
-
-	auto syncVideoAgent = std::make_unique<desktop::core::agent::SyncVideoAgent>(documents + "Download\\Videos\\");
-
-	m_core->initialize(std::move(updateAgent), std::move(syncVideoAgent));
-	
 	return documents + "Download\\Versions\\";
 }
