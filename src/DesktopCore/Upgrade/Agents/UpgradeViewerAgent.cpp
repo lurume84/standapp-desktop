@@ -16,7 +16,7 @@ namespace desktop { namespace core { namespace agent {
 											std::unique_ptr<service::CompressionService> compressionService,
 											std::unique_ptr<service::ReplaceFolderService> replaceFolderService)
 	: m_ioService()
-	, m_timer(m_ioService, boost::posix_time::seconds(60 * 60 * 12))
+	, m_timer(m_ioService, boost::posix_time::seconds(60 * 10))
 	, m_downloadService(std::move(downloadService))
 	, m_clientService(std::move(clientService))
 	, m_compressionService(std::move(compressionService))
@@ -32,10 +32,10 @@ namespace desktop { namespace core { namespace agent {
 
 		auto documents = m_applicationService->getMyDocuments();
 		
-		m_host = m_iniFileService->get<std::string>(documents + "Application.ini", "Upgrade", "Host", "api.github.com");
-		m_repository = m_iniFileService->get<std::string>(documents + "Application.ini", "Repository", "Host", "/repos/lurume84/standapp-viewer/releases/latest");
-		m_inFolder = m_iniFileService->get<std::string>(documents + "Application.ini", "Upgrade", "Input", documents + "Download\\Versions\\");
-		m_outFolder = m_iniFileService->get<std::string>(documents + "Application.ini", "Upgrade", "Output", "Html/viewer");
+		m_host = m_iniFileService->get<std::string>(documents + "Bling.ini", "UpgradeViewer", "Host", "api.github.com");
+		m_repository = m_iniFileService->get<std::string>(documents + "Bling.ini", "UpgradeViewer", "Repository", "/repos/lurume84/bling-viewer/releases/latest");
+		m_inFolder = m_iniFileService->get<std::string>(documents + "Bling.ini", "UpgradeViewer", "Input", documents + "Download\\Versions\\Viewer\\");
+		m_outFolder = m_iniFileService->get<std::string>(documents + "Bling.ini", "UpgradeViewer", "Output", m_applicationService->getViewerFolder());
 
 		boost::filesystem::create_directories(m_inFolder);
 	}
@@ -92,7 +92,7 @@ namespace desktop { namespace core { namespace agent {
 
 											boost::filesystem::rename(path, m_inFolder + version + ".zip");
 
-											events::UpgradeCompletedEvent evt(version);
+											events::UpgradeViewerCompletedEvent evt(version);
 											utils::patterns::Broker::get().publish(evt);
 											break;
 										}
@@ -107,16 +107,14 @@ namespace desktop { namespace core { namespace agent {
 
 						utils::patterns::Broker::get().publish(evt);
 					}
-					else
-					{
-						armTimer();
-					}
 				}
 				catch (std::exception& /*e*/)
 				{
 
 				}
 			}
+
+			armTimer();
 		}
 	}
 
