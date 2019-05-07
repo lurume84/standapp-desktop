@@ -29,21 +29,17 @@ namespace desktop { namespace core { namespace agent {
 
 				{
 					boost::property_tree::ptree token;
-					token.add_child("authtoken", boost::property_tree::ptree{ credentials->m_token });
-
-					tree.add_child("authtoken", token);
+					tree.add_child("token", boost::property_tree::ptree{ credentials->m_token });
 				}
 
 				{
-					std::string region;
+					boost::property_tree::ptree host;
+					tree.add_child("host", boost::property_tree::ptree{ credentials->m_host });
+				}
 
-					std::stringstream ss(credentials->m_host);
-					getline(ss, region, '-'); getline(ss, region, '.');
-
-					boost::property_tree::ptree token;
-					token.add_child(region, boost::property_tree::ptree{ "" });
-
-					tree.add_child("region", token);
+				{
+					boost::property_tree::ptree port;
+					tree.add_child("port", boost::property_tree::ptree{ credentials->m_port });
 				}
 
 				boost::property_tree::json_parser::write_json(viewerFolder + "\\token.json", tree);

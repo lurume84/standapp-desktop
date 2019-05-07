@@ -32,10 +32,10 @@ namespace desktop { namespace core { namespace agent {
 
 		auto documents = m_applicationService->getMyDocuments();
 		
-		m_host = m_iniFileService->get<std::string>(documents + "Bling.ini", "UpgradeDesktop", "Host", "api.github.com");
-		m_repository = m_iniFileService->get<std::string>(documents + "Bling.ini", "UpgradeDesktop", "Repository", "/repos/lurume84/bling-desktop/releases/latest");
-		m_inFolder = m_iniFileService->get<std::string>(documents + "Bling.ini", "UpgradeDesktop", "Input", documents + "Download\\Versions\\Desktop\\");
-		m_outFolder = m_iniFileService->get<std::string>(documents + "Bling.ini", "UpgradeDesktop", "Output", m_applicationService->getViewerFolder());
+		m_host = m_iniFileService->get<std::string>(documents + "Application.ini", "UpgradeDesktop", "Host", "api.github.com");
+		m_repository = m_iniFileService->get<std::string>(documents + "Application.ini", "UpgradeDesktop", "Repository", "/repos/lurume84/standapp-desktop/releases/latest");
+		m_inFolder = m_iniFileService->get<std::string>(documents + "Application.ini", "UpgradeDesktop", "Input", documents + "Download\\Versions\\Desktop\\");
+		m_outFolder = m_iniFileService->get<std::string>(documents + "Application.ini", "UpgradeDesktop", "Output", m_applicationService->getViewerFolder());
 
 		boost::filesystem::create_directories(m_inFolder);
 	}

@@ -21,7 +21,7 @@ namespace desktop { namespace ui{
 
 		for (auto &header : headers)
 		{
-			if (header.first == "TOKEN_AUTH")
+			if (header.first == "Authorization")
 			{
 				std::string protocol, domain, port, path, query, fragment;
 				std::string url = request->GetURL().ToString();

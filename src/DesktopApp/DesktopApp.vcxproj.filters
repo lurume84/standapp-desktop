@@ -74,9 +74,6 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Events.h" />
-    <ClInclude Include="Services\ActivityNotificationService.h">
-      <Filter>Services</Filter>
-    </ClInclude>
     <ClInclude Include="Services\DownloadViewerService.h">
       <Filter>Services</Filter>
     </ClInclude>
@@ -121,9 +118,6 @@
     <ClCompile Include="DesktopApp.cpp" />
     <ClCompile Include="DesktopAppDlg.cpp" />
     <ClCompile Include="stdafx.cpp" />
-    <ClCompile Include="Services\ActivityNotificationService.cpp">
-      <Filter>Services</Filter>
-    </ClCompile>
     <ClCompile Include="Services\DownloadViewerService.cpp">
       <Filter>Services</Filter>
     </ClCompile>

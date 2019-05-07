@@ -397,7 +397,6 @@ xcopy $(SolutionDir)lib\crashsender\$(Configuration)\* $(SolutionDir)\bin\$(Conf
     <ClInclude Include="Constants.h" />
     <ClInclude Include="Events.h" />
     <ClInclude Include="Resource.h" />
-    <ClInclude Include="Services\ActivityNotificationService.h" />
     <ClInclude Include="Services\DownloadDesktopService.h" />
     <ClInclude Include="Services\DownloadViewerService.h" />
     <ClInclude Include="stdafx.h" />
@@ -420,7 +419,6 @@ xcopy $(SolutionDir)lib\crashsender\$(Configuration)\* $(SolutionDir)\bin\$(Conf
     <ClCompile Include="Browser\Resources\ExternalResourceManager.cpp" />
     <ClCompile Include="Browser\Resources\InternalResourceManager.cpp" />
     <ClCompile Include="Browser\Resources\RequestResourceProvider.cpp" />
-    <ClCompile Include="Services\ActivityNotificationService.cpp" />
     <ClCompile Include="Services\DownloadDesktopService.cpp" />
     <ClCompile Include="Services\DownloadViewerService.cpp" />
     <ClCompile Include="stdafx.cpp">
