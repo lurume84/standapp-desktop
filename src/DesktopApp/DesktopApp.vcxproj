@@ -135,7 +135,7 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <RunCodeAnalysis>true</RunCodeAnalysis>
     <IntDir>$(SolutionDir)\int\$(Configuration)\$(ProjectName)\</IntDir>
-    <TargetName>Bling</TargetName>
+    <TargetName>StandApp</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -150,7 +150,7 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <RunCodeAnalysis>true</RunCodeAnalysis>
     <IntDir>$(SolutionDir)\int\$(Configuration)\$(ProjectName)\</IntDir>
-    <TargetName>Bling</TargetName>
+    <TargetName>StandApp</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Unicode Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -165,7 +165,7 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <RunCodeAnalysis>true</RunCodeAnalysis>
     <IntDir>$(SolutionDir)\int\$(Configuration)\$(ProjectName)\</IntDir>
-    <TargetName>Bling</TargetName>
+    <TargetName>StandApp</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -180,7 +180,7 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <RunCodeAnalysis>true</RunCodeAnalysis>
     <IntDir>$(SolutionDir)\int\$(Configuration)\$(ProjectName)\</IntDir>
-    <TargetName>Bling</TargetName>
+    <TargetName>StandApp</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Unicode Release|x64'">
     <LinkIncremental>false</LinkIncremental>
