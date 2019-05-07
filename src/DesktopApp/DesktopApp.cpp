@@ -78,7 +78,7 @@ BOOL DesktopApp::InitInstance()
 
 	std::string reason;
 
-	desktop::ui::agent::NotificationAgent agent(L"Bling");
+	desktop::ui::agent::NotificationAgent agent(L"StandApp");
 	if (!agent.initialize(doRegister, reason, m_nExitCode))
 	{
 		std::string reason2 = reason + ". Check if Windows Notification Platform is available. Application will continue but notifications will not work.";
