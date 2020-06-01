@@ -1,3 +1,5 @@
+[![Build status AppVeyor](https://ci.appveyor.com/api/projects/status/15nhski0gdbpinyf?svg=true)](https://ci.appveyor.com/project/lurume84/standapp-desktop)
+
 # Standapp desktop
 This application is the container of [StandApp Viewer](https://github.com/lurume84/standapp-viewer) project. It is a chrome-based application (CEF) that loads viewer seamlessly and extends viewer capabilities.
 
