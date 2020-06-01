@@ -13,36 +13,36 @@ namespace desktop { namespace core { namespace service {
 		template<typename... Args>
 		static inline void info(const std::string& fmt, const Args &... args)
 		{
-			if(spdlog::get("BlingLog") != nullptr)
+			if(spdlog::get("ApplicationLog") != nullptr)
 			{
-				spdlog::get("BlingLog")->info(fmt, args...);
+				spdlog::get("ApplicationLog")->info(fmt, args...);
 			}
 		}
 
 		template<typename... Args>
 		static inline void error(const std::string& fmt, const Args &... args)
 		{
-			if (spdlog::get("BlingLog") != nullptr)
+			if (spdlog::get("ApplicationLog") != nullptr)
 			{
-				spdlog::get("BlingLog")->error(fmt, args...);
+				spdlog::get("ApplicationLog")->error(fmt, args...);
 			}
 		}
 
 		template<typename... Args>
 		static inline void warn(const std::string& fmt, const Args &... args)
 		{
-			if (spdlog::get("BlingLog") != nullptr)
+			if (spdlog::get("ApplicationLog") != nullptr)
 			{
-				spdlog::get("BlingLog")->warn(fmt, args...);
+				spdlog::get("ApplicationLog")->warn(fmt, args...);
 			}
 		}
 
 		template<typename... Args>
 		static inline void critical(const std::string& fmt, const Args &... args)
 		{
-			if (spdlog::get("BlingLog") != nullptr)
+			if (spdlog::get("ApplicationLog") != nullptr)
 			{
-				spdlog::get("BlingLog")->critical(fmt, args...);
+				spdlog::get("ApplicationLog")->critical(fmt, args...);
 			}
 		}
 	};

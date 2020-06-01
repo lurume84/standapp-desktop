@@ -98,7 +98,7 @@ foreach(FILE ${SRC_FILES})
     source_group("${GROUP}" FILES "${FILE}")
 endforeach()
 
-set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "Bling" PDB_NAME "Bling"
+set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "StandApp" PDB_NAME "StandApp"
     PDB_OUTPUT_DIRECTORY "${CMAKE_EXECUTABLE_OUTPUT_DIRECTORY}")
 
 ######################### Flags ############################

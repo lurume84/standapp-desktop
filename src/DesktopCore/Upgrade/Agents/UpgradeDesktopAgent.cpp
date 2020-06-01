@@ -28,7 +28,7 @@ namespace desktop { namespace core { namespace agent {
 	{
 		auto documents = m_applicationService->getMyDocuments();
 
-		if (m_iniFileService->get<bool>(documents + "Bling.ini", "UpgradeDesktop", "Enabled", true))
+		if (m_iniFileService->get<bool>(documents + "Application.ini", "UpgradeDesktop", "Enabled", true))
 		{
 			m_enabled = true;
 
@@ -37,9 +37,9 @@ namespace desktop { namespace core { namespace agent {
 			boost::thread t(boost::bind(&boost::asio::io_service::run, &m_ioService));
 			m_backgroundThread.swap(t);
 
-			m_host = m_iniFileService->get<std::string>(documents + "Bling.ini", "UpgradeDesktop", "Host", "api.github.com");
-			m_repository = m_iniFileService->get<std::string>(documents + "Bling.ini", "UpgradeDesktop", "Repository", "/repos/lurume84/bling-desktop/releases/latest");
-			m_inFolder = m_iniFileService->get<std::string>(documents + "Bling.ini", "UpgradeDesktop", "Input", documents + "Download\\Versions\\Desktop\\");
+			m_host = m_iniFileService->get<std::string>(documents + "Application.ini", "UpgradeDesktop", "Host", "api.github.com");
+			m_repository = m_iniFileService->get<std::string>(documents + "Application.ini", "UpgradeDesktop", "Repository", "/repos/lurume84/standapp-desktop/releases/latest");
+			m_inFolder = m_iniFileService->get<std::string>(documents + "Application.ini", "UpgradeDesktop", "Input", documents + "Download\\Versions\\Desktop\\");
 
 			boost::filesystem::create_directories(m_inFolder);
 

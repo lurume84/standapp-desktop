@@ -28,7 +28,7 @@ namespace desktop { namespace core { namespace agent {
 	{
 		auto documents = m_applicationService->getMyDocuments();
 
-		if (m_iniFileService->get<bool>(documents + "Bling.ini", "UpgradeViewer", "Enabled", true))
+		if (m_iniFileService->get<bool>(documents + "Application.ini", "UpgradeViewer", "Enabled", true))
 		{
 			m_enabled = true;
 
@@ -37,10 +37,10 @@ namespace desktop { namespace core { namespace agent {
 			boost::thread t(boost::bind(&boost::asio::io_service::run, &m_ioService));
 			m_backgroundThread.swap(t);
 
-			m_host = m_iniFileService->get<std::string>(documents + "Bling.ini", "UpgradeViewer", "Host", "api.github.com");
-			m_repository = m_iniFileService->get<std::string>(documents + "Bling.ini", "UpgradeViewer", "Repository", "/repos/lurume84/bling-viewer/releases/latest");
-			m_inFolder = m_iniFileService->get<std::string>(documents + "Bling.ini", "UpgradeViewer", "Input", documents + "Download\\Versions\\Viewer\\");
-			m_outFolder = m_iniFileService->get<std::string>(documents + "Bling.ini", "UpgradeViewer", "Output", m_applicationService->getViewerFolder());
+			m_host = m_iniFileService->get<std::string>(documents + "Application.ini", "UpgradeViewer", "Host", "api.github.com");
+			m_repository = m_iniFileService->get<std::string>(documents + "Application.ini", "UpgradeViewer", "Repository", "/repos/lurume84/standapp-viewer/releases/latest");
+			m_inFolder = m_iniFileService->get<std::string>(documents + "Application.ini", "UpgradeViewer", "Input", documents + "Download\\Versions\\Viewer\\");
+			m_outFolder = m_iniFileService->get<std::string>(documents + "Application.ini", "UpgradeViewer", "Output", m_applicationService->getViewerFolder());
 
 			boost::filesystem::create_directories(m_inFolder);
 

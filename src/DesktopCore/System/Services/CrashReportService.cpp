@@ -47,11 +47,11 @@ namespace desktop { namespace core { namespace service {
 			return false;
 		}
 
-		auto logFile = m_appService->getMyDocuments() + "Logs\\Bling.log";
+		auto logFile = m_appService->getMyDocuments() + "Logs\\Application.log";
 
 		bool result = crAddFile2(
 			logFile.c_str(),
-			"Bling.log",
+			"Application.log",
 			"Log file",
 			CR_AF_MAKE_FILE_COPY | CR_AF_ALLOW_DELETE);
 

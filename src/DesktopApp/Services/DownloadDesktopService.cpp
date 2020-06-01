@@ -51,12 +51,12 @@ namespace desktop { namespace ui { namespace service {
 			auto evt = static_cast<const desktop::core::events::UpgradeDesktopCompletedEvent&>(rawEvt);
 
 			std::stringstream ss;
-			ss << "Bling Desktop " << evt.m_version << " is available, do you want to install it?";
+			ss << "StandApp Desktop " << evt.m_version << " is available, do you want to install it?";
 
 			std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
 			std::wstring message = converter.from_bytes(ss.str());
 
-			const int result = MessageBox(NULL, message.c_str(), L"Bling upgrade", MB_YESNO);
+			const int result = MessageBox(NULL, message.c_str(), L"StandApp upgrade", MB_YESNO);
 
 			switch (result)
 			{

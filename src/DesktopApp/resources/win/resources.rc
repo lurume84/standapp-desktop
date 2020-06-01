@@ -124,12 +124,12 @@ BEGIN
         BLOCK "040904b0"
         BEGIN
             VALUE "CompanyName", "Luis Ruiz"
-            VALUE "FileDescription", "Bling"
+            VALUE "FileDescription", "StandApp"
             VALUE "FileVersion", "0.0.0.0"
-            VALUE "InternalName", "Bling"
-            VALUE "LegalCopyright", "Copyright (C) 2020 Bling"
-            VALUE "OriginalFilename", "Bling.exe"
-            VALUE "ProductName", "Bling"
+            VALUE "InternalName", "StandApp"
+            VALUE "LegalCopyright", "Copyright (C) 2020 StandApp"
+            VALUE "OriginalFilename", "StandApp.exe"
+            VALUE "ProductName", "StandApp"
             VALUE "ProductVersion", "0.0.0.0"
         END
     END
@@ -175,8 +175,8 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_APP_TITLE           "Bling"
-    IDC_CEFCLIENT           "BLING"
+    IDS_APP_TITLE           "StandApp"
+    IDC_CEFCLIENT           "STANDAPP"
 END
 
 #endif    // English (United States) resources

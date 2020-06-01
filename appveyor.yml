@@ -29,7 +29,7 @@ build_script:
   - cmd: 7z a bin\Release\DesktopApp\PDBs.7z -r bin\Release\DesktopApp\*.pdb
   
 artifacts:
-  - path: bin\Release\DesktopInstaller\BlingSetup.exe
-    name: Bling
+  - path: bin\Release\DesktopInstaller\StandAppSetup.exe
+    name: StandApp
   - path: bin\Release\DesktopApp\PDBs.7z
     name: PDBs
