@@ -99,7 +99,7 @@ int RunMain(HINSTANCE hInstance, int nCmdShow)
 
   CefSettings settings;
   settings.remote_debugging_port = 8088;
-  //CefString(&settings.user_agent).FromString("StandAppBrowser");
+  //CefString(&settings.user_agent).FromString("BlingBrowser");
 
   settings.external_message_pump = true;
 
@@ -138,7 +138,7 @@ int RunMain(HINSTANCE hInstance, int nCmdShow)
 	  {
 		  desktop::core::service::IniFileService iniFileService;
 
-		  window_config.url = iniFileService.get<std::string>(applicationService.getMyDocuments() + "Application.ini", "FileServer", "Endpoint", "http://127.0.0.1:9291/");
+		  window_config.url = iniFileService.get<std::string>(applicationService.getMyDocuments() + "Application.ini", "FileServer", "Endpoint", "http://127.0.0.1:9191/");
 	  }
 	  else
 	  {
