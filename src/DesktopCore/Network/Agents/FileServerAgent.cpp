@@ -57,7 +57,7 @@ namespace desktop { namespace core { namespace agent {
 		m_folder = m_applicationService->getViewerFolder();
 
 		auto host = m_iniFileService->get<std::string>(documents + "Application.ini", "FileServer", "Host", "127.0.0.1");
-		auto port = m_iniFileService->get<int>(documents + "Application.ini", "FileServer", "Port", 9191);
+		auto port = m_iniFileService->get<int>(documents + "Application.ini", "FileServer", "Port", 9291);
 
 		m_endpoint = "http://" + host + ":" + std::to_string(port);
 

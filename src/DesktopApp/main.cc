@@ -26,10 +26,6 @@
 #include "DesktopCore\Upgrade\Agents\UpgradeDesktopAgent.h"
 #include "DesktopCore\Upgrade\Events.h"
 #include "DesktopCore\Network\Agents\FileServerAgent.h"
-#include "DesktopCore\Blink\Agents\SyncVideoAgent.h"
-#include "DesktopCore\Blink\Agents\SyncThumbnailAgent.h"
-#include "DesktopCore\Blink\Agents\LiveViewAgent.h"
-#include "DesktopCore\Blink\Agents\ActivityAgent.h"
 #include "DesktopCore\System\Agents\LogAgent.h"
 #include "DesktopCore\System\Services\LogService.h"
 #include "Services\DownloadViewerService.h"
@@ -99,7 +95,6 @@ int RunMain(HINSTANCE hInstance, int nCmdShow)
 
   CefSettings settings;
   settings.remote_debugging_port = 8088;
-  //CefString(&settings.user_agent).FromString("BlingBrowser");
 
   settings.external_message_pump = true;
 
@@ -138,7 +133,7 @@ int RunMain(HINSTANCE hInstance, int nCmdShow)
 	  {
 		  desktop::core::service::IniFileService iniFileService;
 
-		  window_config.url = iniFileService.get<std::string>(applicationService.getMyDocuments() + "Application.ini", "FileServer", "Endpoint", "http://127.0.0.1:9191/");
+		  window_config.url = iniFileService.get<std::string>(applicationService.getMyDocuments() + "Application.ini", "FileServer", "Endpoint", "http://127.0.0.1:9291/");
 	  }
 	  else
 	  {
@@ -151,9 +146,6 @@ int RunMain(HINSTANCE hInstance, int nCmdShow)
   core.initialize();
 
   core.addAgent(std::make_unique<desktop::core::agent::LogAgent>());
-  core.addAgent(std::make_unique<desktop::core::agent::SyncVideoAgent>());
-  core.addAgent(std::make_unique<desktop::core::agent::SyncThumbnailAgent>());
-  core.addAgent(std::make_unique<desktop::core::agent::LiveViewAgent>());
   core.addAgent(std::make_unique<desktop::core::agent::FileServerAgent>());
 
   desktop::core::utils::patterns::Subscriber subscriber;
