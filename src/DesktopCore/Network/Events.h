@@ -2,7 +2,8 @@
 
 #include "..\Utils\Patterns\PublisherSubscriber\Event.h"
 
-#include "..\Network/Model/Credentials.h"
+#include "..\Network\Model\Credentials.h"
+#include "..\Network\Model\RTP.h"
 
 namespace desktop { namespace core { namespace events {
 	

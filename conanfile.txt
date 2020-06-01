@@ -1,0 +1,21 @@
+[requires]
+boost_chrono/1.69.0@bincrafters/stable
+boost_date_time/1.69.0@bincrafters/stable
+boost_filesystem/1.69.0@bincrafters/stable
+boost_regex/1.69.0@bincrafters/stable
+boost_thread/1.69.0@bincrafters/stable
+boost_asio/1.69.0@bincrafters/stable
+boost_property_tree/1.69.0@bincrafters/stable
+boost_signals2/1.69.0@bincrafters/stable
+cef/3.3626.1872.g4b5c38e@lurume84/blink
+CrashRpt/1.4.3@lurume84/stable
+7zip-cpp/0.2.0@lurume84/stable
+7zip/15.12.0@lurume84/stable
+OpenSSL/1.1.1@conan/stable
+cpp-httplib/0.5.8@_/_
+ffmpeg/4.1.4@lurume84/blink
+spdlog/1.4.2@bincrafters/stable
+[generators]
+cmake
+[imports]
+bin, *.exe -> ../bin/Release/DesktopApp

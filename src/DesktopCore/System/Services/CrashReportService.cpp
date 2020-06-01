@@ -37,7 +37,7 @@ namespace desktop { namespace core { namespace service {
 		info.pszErrorReportSaveDir = folder.c_str();
 
 		info.nRestartTimeout = 50;
-
+		
 		m_helper = std::make_unique<CrAutoInstallHelper>(&info);
 		if (m_helper->m_nInstallStatus != 0)
 		{
@@ -47,12 +47,15 @@ namespace desktop { namespace core { namespace service {
 			return false;
 		}
 
-		bool result = crAddScreenshot(CR_AS_MAIN_WINDOW);
+		auto logFile = m_appService->getMyDocuments() + "Logs\\Bling.log";
 
-		if(result == 0)
-		{
-			result = crAddProperty("ReportService", "CrashReportServicev1.0");
-		}
+		bool result = crAddFile2(
+			logFile.c_str(),
+			"Bling.log",
+			"Log file",
+			CR_AF_MAKE_FILE_COPY | CR_AF_ALLOW_DELETE);
+
+		result = crAddProperty("ReportService", "CrashReportServicev1.0");
 
 		return result;
 	}

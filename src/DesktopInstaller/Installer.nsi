@@ -5,20 +5,20 @@
 ;--------------------------------
 ;Include Bling Desktop
 
-  !include "MUI2.nsh"
+!include "MUI2.nsh"
+!include "WinVer.nsh"
+!include "LogicLib.nsh"
 
 !define MUI_ICON "..\..\src\DesktopUI\img\logo2.ico"
 !define MUI_HEADERIMAGE
 !define MUI_HEADERIMAGE_BITMAP "..\..\src\DesktopUI\img\logo.bmp"
 !define MUI_HEADERIMAGE_RIGHT
 !define PRODUCT_NAME "Bling Desktop"
-!define PRODUCT_VERSION "0.1.10.0"
-!define VERSION "0.1.10.0"
+!define VERSION "0.0.0.0"
 !define PRODUCT_PUBLISHER "Luis Ruiz"
 !define PRODUCT_WEB_SITE "https://github.com/lurume84/bling-desktop"
 
 VIProductVersion "${VERSION}"
-VIFileVersion "${VERSION}"
 VIAddVersionKey "ProductName" "Bling Desktop"
 VIAddVersionKey "FileVersion" "${VERSION}"
 VIAddVersionKey "LegalCopyright" "Copyright (c) 2019 Luis Ruiz"
@@ -26,9 +26,11 @@ VIAddVersionKey "FileDescription" "Bling Desktop"
 ;--------------------------------
 ;General
 
+  !system 'if not exist "../../bin/Release/DesktopInstaller/" md "../../bin/Release/DesktopInstaller/"'
+
   ;Name and file
   Name "Bling Desktop"
-  OutFile "../../BlingSetup.exe"
+  OutFile "../../bin/Release/DesktopInstaller/BlingSetup.exe"
 
   ;Default installation folder
   InstallDir "$LOCALAPPDATA\Bling Desktop"
@@ -65,9 +67,17 @@ VIAddVersionKey "FileDescription" "Bling Desktop"
 
 Section "Desktop" SecDummy
 
+	nsExec::ExecToStack "cmd.exe /C tasklist /nh /fi $\"IMAGENAME eq Bling.exe$\" | find /i $\"Bling.exe$\""
+    Pop $0
+    Pop $1
+    
+    ${If} $1 != ""
+      MessageBox MB_ICONEXCLAMATION|MB_OK "Bling is running, close it before proceeding" /SD IDOK
+    ${EndIf}
+
   SetOutPath "$INSTDIR"
   File /x "*.pdb" /x "*.ipdb" /x "*.iobj" /x "*.lib" "..\..\bin\Release\DesktopApp\*.*"
-  
+
   SetOutPath "$INSTDIR\Html"
   File /r "..\..\bin\Release\DesktopApp\Html\loading"
 
@@ -79,8 +89,9 @@ Section "Desktop" SecDummy
 
   ; Create application shortcut (first in installation dir to have the correct "start in" target)
   SetOutPath "$INSTDIR"
-  CreateShortCut "$INSTDIR\${PRODUCT_NAME}.lnk" "$INSTDIR\Bling.exe"
-
+  
+  CreateShortCut "$INSTDIR\${PRODUCT_NAME}.lnk" "$INSTDIR\Bling.exe" 
+  
   ; Start menu entries
   SetOutPath "$SMPROGRAMS\${PRODUCT_NAME}\"
   CopyFiles "$INSTDIR\${PRODUCT_NAME}.lnk" "$SMPROGRAMS\${PRODUCT_NAME}\"
